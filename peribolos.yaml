@@ -1,0 +1,25 @@
+orgs:
+  skopecky-test:
+    admins:
+      - SamoKopecky
+    billing_email: skopecky@redhat.com
+    company: ""
+    default_repository_permission: read
+    description: ""
+    email: ""
+    has_organization_projects: true
+    has_repository_projects: true
+    location: ""
+    members_can_create_repositories: true
+    name: skopecky-test
+    repos:
+      .github:
+        default_branch: main
+        has_projects: true
+      example-service:
+        default_branch: main
+        has_projects: true
+      test:
+        default_branch: main
+        has_projects: true
+        private: true
