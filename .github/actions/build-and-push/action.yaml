@@ -3,19 +3,19 @@ description: Clone one image with multiple arcs to multiple image repos
 
 inputs:
   platform:
-    description: TODO
+    description: Platform to build with, e.g. linux/amd64
     required: true
   image_tag:
-    description: TODO
+    description: Image tag to tag image with, e.g. latest
     required: true
   context:
-    description: TODO
+    description: Context to build the image with
     required: false
     default: .
   push:
+    description: Whether to push to a registry or not
     default: "true"
     required: false
-    description: TODO
 
 runs:
   using: "composite"
@@ -32,7 +32,8 @@ runs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@8c0edbc76e98fa90f69d9a2c020dcb50019dc325 #pin@v2.2.1
 
-    - name: Log in to Registry
+    - if: inputs.push == "true"
+      name: Log in to Registry
       uses: redhat-actions/podman-login@632d91dfe19e1b55833cb708786bfbad2c2a0335 #pin@v3.2.0
       with:
         registry: ${{ env.MAIN_REGISTRY }}

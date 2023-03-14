@@ -12,13 +12,13 @@ inputs:
     description: Registry
     required: true
   username:
-    description: TODO
+    description: Registry username for pushing images/manifests
     required: true
   password:
-    description: TODO
+    description: Registry password for pushing images/manifests
     required: true
   repository:
-    description: TODO
+    description: Registry repository for pushing images/manifests
     required: true
 
 runs:
