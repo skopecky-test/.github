@@ -32,7 +32,7 @@ runs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@8c0edbc76e98fa90f69d9a2c020dcb50019dc325 #pin@v2.2.1
 
-    - if: inputs.push == "true"
+    - if: inputs.push == true
       name: Log in to Registry
       uses: redhat-actions/podman-login@632d91dfe19e1b55833cb708786bfbad2c2a0335 #pin@v3.2.0
       with:
