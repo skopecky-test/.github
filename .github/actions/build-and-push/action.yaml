@@ -25,6 +25,10 @@ runs:
       id: set-build-variables
       run: |
         echo "PLATFORM_DASH=$(echo ${{ inputs.platform }} | sed -e 's/\//-/g')" >> $GITHUB_OUTPUT
+        if [ -z "$MAIN_REGISTRY" ] && [ -z "$MAIN_REPOSITORY" ]; then
+          MAIN_REGISTRY=foo
+          MAIN_REPOSITORY=bar
+        fi
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@e81a89b1732b9c48d79cd809d8d81d79c4647a18 #pin@v2.1.0
