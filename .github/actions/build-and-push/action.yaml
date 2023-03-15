@@ -26,8 +26,8 @@ runs:
       run: |
         echo "PLATFORM_DASH=$(echo ${{ inputs.platform }} | sed -e 's/\//-/g')" >> $GITHUB_OUTPUT
         if [ -z "$MAIN_REGISTRY" ] && [ -z "$MAIN_REPOSITORY" ]; then
-          MAIN_REGISTRY=foo
-          MAIN_REPOSITORY=bar
+          export MAIN_REGISTRY=foo
+          export MAIN_REPOSITORY=bar
         fi
 
     - name: Set up QEMU
